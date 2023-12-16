@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import dotenv from "dotenv";
 import { __dirName } from "../utils.js";
 import cors from 'cors'
@@ -23,7 +24,7 @@ class Server {
 
     this.app.use(cors())
     this.app.use(express.json())
-    this.app.use(express.static("./public"));
+    this.app.use(express.static(path.join(__dirName, './public')));
   }
 
   routes() {
